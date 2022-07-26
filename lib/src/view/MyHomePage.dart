@@ -2,21 +2,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mvcdemo/src/controller/main_controller.dart';
 
-
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key}) : super(key: key);
 
   // Fields in a Widget subclass are always marked "final".
 
-   final String title = 'MVC Demo';
-   final String title1 = 'Push Buttons to increase and decrease value.';
+  final String title = 'MVC Demo';
+  final String title1 = 'Push Buttons to increase and decrease value.';
 
   @override
   _MyHomePageState createState() => new _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   final Controller _con = Controller();
 
   @override
@@ -39,33 +37,30 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[FloatingActionButton(
-                onPressed: () {
-                  setState(
-                      _con.decrementCounter
-                  );
-                },
-                tooltip: 'Decrement',
-                child: Icon(Icons.remove),
-              ),Text(
-                _con!=null?
-                '${_con.counter}':"hi",
-                style: Theme.of(context).textTheme.display1,
-              ),FloatingActionButton(
-                onPressed: () {
-                  setState(
-                      _con.incrementCounter
-                  );
-                },
-                tooltip: 'Increment',
-                child: Icon(Icons.add),
-              ),],
+              children: <Widget>[
+                FloatingActionButton(
+                  onPressed: () {
+                    setState(_con.decrementCounter);
+                  },
+                  tooltip: 'Decrement',
+                  child: Icon(Icons.remove),
+                ),
+                Text(
+                  _con != null ? '${_con.counter}' : "hi",
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                FloatingActionButton(
+                  onPressed: () {
+                    setState(_con.incrementCounter);
+                  },
+                  tooltip: 'Increment',
+                  child: Icon(Icons.add),
+                ),
+              ],
             ),
           ],
         ),
       ),
-
-
     );
   }
 }
